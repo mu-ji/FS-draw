@@ -99,7 +99,7 @@ def update(frame):
     ax.clear()
     t_index = frame
     print(t_index)
-    ax.plot(trajectory_x, trajectory_y, linestyle = '--', label = 'Pattern drawn by FS')
+    ax.plot(trajectory_x, trajectory_y, linestyle = '--', label = 'Original pattern')
     start_point = c0
     end_point = start_point
     for coeff_index in range(num_circle-1):
@@ -113,7 +113,7 @@ def update(frame):
 
     trajectory_endpoint_x_list.append(end_point.real)
     trajectory_endpoint_y_list.append(end_point.imag)
-    ax.plot(trajectory_endpoint_x_list, trajectory_endpoint_y_list, label='Original pattern')
+    ax.plot(trajectory_endpoint_x_list, trajectory_endpoint_y_list, label='Pattern drawn by FS')
     ax.set_ylim(-1.5, 1.5)  # 重新设置 y 轴范围
     ax.set_xlim(-1.5, 1.5)      # 重新设置 x 轴范围
     ax.set_title('Visualization with n={}'.format(num_circle))
@@ -121,8 +121,8 @@ def update(frame):
     ax.set_ylabel('Y')
     plt.legend()
 
-    if t_index == trajectory_length-1:
-        plt.savefig('n={}.png'.format(num_circle))
+    #if t_index == trajectory_length-1:
+    #    plt.savefig('n={}.png'.format(num_circle))
 
 # 创建动画
 ani = FuncAnimation(fig, update, frames=np.arange(0, trajectory_length), blit=False, interval=1)
