@@ -60,7 +60,7 @@ def simu_interate(t, n):
 
 positive_coeff_list = []
 nagtive_coeff_list = []
-num_circle = 50
+num_circle = 10
 
 for i in range(1, num_circle):
     positive_coeff_list.append(simu_interate(t, i))        #cal c1 to cn
@@ -121,8 +121,8 @@ def update(frame):
     ax.set_ylabel('Y')
     plt.legend()
 
-    #if t_index == trajectory_length-1:
-    #    plt.savefig('n={}.png'.format(num_circle))
+    if t_index == trajectory_length-1:
+        plt.savefig('n={}.png'.format(num_circle))
 
 # 创建动画
 ani = FuncAnimation(fig, update, frames=np.arange(0, trajectory_length), blit=False, interval=1)
